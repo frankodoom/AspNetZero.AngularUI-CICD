@@ -18,7 +18,7 @@ steps:
 - script: |
     npm install -g @angular/cli
     yarn install
-    ng build --prod
+    node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod
   displayName: 'npm install and build'
 
 - task: CopyFiles@2
