@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "publish": "ng build --prod --max_old_space_size=8192",
+    "publish": "ng build --prod",
     "start": "ng serve --host 0.0.0.0 --port 4200",
     "hmr": "ng serve --host 0.0.0.0 --port 4200 --hmr",
     "test": "ng test",
