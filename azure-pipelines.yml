@@ -15,11 +15,6 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: Bash@3
-  inputs:
-      filePath: '$(Build.SourcesDirectory)/nswag'
-      arguments: 'refresh.bat'
-
 - script: |
     npm install -g @angular/cli
     npm install
@@ -27,6 +22,12 @@ steps:
     node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod
   displayName: 'npm install and build'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    overWrite: false
+    Contents: '*.config'
+    TargetFolder: 'dist/'
 
 
 - task: PublishBuildArtifacts@1
