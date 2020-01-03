@@ -17,7 +17,7 @@ steps:
 
 - task: Bash@3
   inputs:
-      filePath: 'nswag/'
+      filePath: 'nswag'
       arguments: 'refresh.bat'
 
 - script: |
@@ -33,7 +33,6 @@ steps:
     overWrite: false
     Contents: '*.config'
     TargetFolder: 'dist/angular'
-
 
 
 - task: PublishBuildArtifacts@1
