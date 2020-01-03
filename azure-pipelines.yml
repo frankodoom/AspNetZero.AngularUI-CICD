@@ -24,8 +24,8 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '/'
-    Contents: 'web.config'
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '*.config'
     TargetFolder: 'dist/angular'
 
 - task: PublishBuildArtifacts@1
