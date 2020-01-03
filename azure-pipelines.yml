@@ -20,10 +20,15 @@ steps:
     yarn install
     ng build --prod
   displayName: 'npm install and build'
-- task: AzureRmWebAppDeployment@4
+
+- task: CopyFiles@2
   inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'DotnetZero-CICD-Angular - Azure'
-    appType: 'webApp'
-    WebAppName: 'DotnetZero-CICD-Angular'
-    packageForLinux: 'dist/angular/'
+    SourceFolder: '/'
+    Contents: 'web.config'
+    TargetFolder: 'dist/angular'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist/angular'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
